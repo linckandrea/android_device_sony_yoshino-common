@@ -1,0 +1,2 @@
+# suppress spurious denials
+dontaudit fsck_untrusted vold_device:blk_file ioctl;
