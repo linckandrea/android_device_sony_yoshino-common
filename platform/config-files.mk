@@ -32,7 +32,8 @@ PRODUCT_COPY_FILES += \
 
 ### POWER
 PRODUCT_COPY_FILES += \
-    $(PLATFORM_PATH)/config/power/powerhint.xml:$(TARGET_COPY_OUT_VENDOR)/etc/powerhint.xml
+    $(PLATFORM_PATH)/config/power/perfboostsconfig.xml:$(TARGET_COPY_OUT_VENDOR)/etc/perf/perfboostsconfig.xml \
+    $(PLATFORM_PATH)/config/power/targetresourceconfigs.xml:$(TARGET_COPY_OUT_VENDOR)/etc/perf/targetresourceconfigs
 
 # QTI low power whitelist
 PRODUCT_COPY_FILES += \
