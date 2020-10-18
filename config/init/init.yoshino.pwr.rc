@@ -27,9 +27,6 @@ on init
     write /dev/stune/top-app/schedtune.prefer_idle 1
 
 on charger
-    # Disable thermal
-    write /sys/module/msm_thermal/core_control/enabled 0
-
     # Bring CPUs online
     write /sys/devices/system/cpu/cpu1/online 1
     write /sys/devices/system/cpu/cpu2/online 1
@@ -56,9 +53,6 @@ on charger
     write /sys/devices/system/cpu/cpu6/online 0
     write /sys/devices/system/cpu/cpu7/online 0
 
-    # Enable thermal
-    write /sys/module/msm_thermal/core_control/enabled 1
-
 on boot
     # For cpusets initialize for Silver Only first and then Silver + Gold
     # Silver Only configuration cannot work with 0-7
@@ -79,17 +73,6 @@ on boot
     chmod 0660 /dev/cpuset/camera-daemon/tasks
 
 on property:sys.boot_completed=1
-    # Setup big cluster
-    write /sys/devices/system/cpu/cpu4/core_ctl/min_cpus 2
-    write /sys/devices/system/cpu/cpu4/core_ctl/busy_up_thres 60
-    write /sys/devices/system/cpu/cpu4/core_ctl/busy_down_thres 30
-    write /sys/devices/system/cpu/cpu4/core_ctl/offline_delay_ms 100
-    write /sys/devices/system/cpu/cpu4/core_ctl/is_big_cluster 1
-    write /sys/devices/system/cpu/cpu4/core_ctl/task_thres 4
-
-    # Disable thermal to switch governor
-    write /sys/module/msm_thermal/core_control/enabled 0
-
     # Configure governor for little cluster
     write /sys/devices/system/cpu/cpu0/online 1
     write /sys/devices/system/cpu/cpu0/cpufreq/scaling_governor "interactive"
@@ -121,9 +104,6 @@ on property:sys.boot_completed=1
     write /sys/devices/system/cpu/cpu4/cpufreq/interactive/max_freq_hysteresis 79000
     write /sys/devices/system/cpu/cpu4/cpufreq/scaling_min_freq 806400
     write /sys/devices/system/cpu/cpu4/cpufreq/interactive/ignore_hispeed_on_notif 1
-
-    # Re-enable thermal
-    write /sys/module/msm_thermal/core_control/enabled 1
 
     # Enable input boost configuration
     write /sys/module/cpu_boost/parameters/input_boost_freq "0:1324800"
