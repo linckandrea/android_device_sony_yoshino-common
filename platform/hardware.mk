@@ -132,8 +132,8 @@ PRODUCT_PACKAGES += \
     android.hardware.nfc@1.1-service
 
 # POWER
-#PRODUCT_PACKAGES += \
-#    android.hardware.power-service-qti
+PRODUCT_PACKAGES += \
+    android.hardware.power@1.3-service.yoshino
 
 # RADIO
 PRODUCT_PACKAGES += \

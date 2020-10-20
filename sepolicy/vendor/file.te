@@ -53,6 +53,7 @@ type sysfs_fpc_irq, fs_type, sysfs_type;
 type sysfs_fpc_spi_prepare, fs_type, sysfs_type;
 type sysfs_fpc_wakeup, fs_type, sysfs_type;
 type sysfs_mdss_dsi_panel, fs_type, sysfs_type;
+type sysfs_msm_subsys, fs_type, sysfs_type;
 type sysfs_nfc_i2c, fs_type, sysfs_type;
 type sysfs_pm_wakeup, fs_type, sysfs_type;
 type sysfs_qns, fs_type, sysfs_type;
