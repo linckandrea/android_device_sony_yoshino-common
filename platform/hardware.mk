@@ -133,8 +133,8 @@ PRODUCT_PACKAGES += \
     SecureElement
 
 # POWER
-PRODUCT_PACKAGES += \
-    android.hardware.power@1.2-service-qti
+#PRODUCT_PACKAGES += \
+#    android.hardware.power@1.2-service-qti
 
 # RADIO
 PRODUCT_PACKAGES += \
