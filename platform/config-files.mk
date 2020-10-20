@@ -35,8 +35,8 @@ PRODUCT_COPY_FILES += \
     $(PLATFORM_PATH)/config/nfc/libnfc-nxp.conf:$(TARGET_COPY_OUT_VENDOR)/etc/libnfc-nxp.conf
 
 ### POWER
-PRODUCT_COPY_FILES += \
-    $(PLATFORM_PATH)/config/power/powerhint.xml:$(TARGET_COPY_OUT_VENDOR)/etc/powerhint.xml
+#PRODUCT_COPY_FILES += \
+#    $(PLATFORM_PATH)/config/power/powerhint.xml:$(TARGET_COPY_OUT_VENDOR)/etc/powerhint.xml
 
 # QTI low power whitelist
 PRODUCT_COPY_FILES += \
