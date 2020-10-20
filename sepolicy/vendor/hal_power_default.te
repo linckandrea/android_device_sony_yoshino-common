@@ -4,8 +4,9 @@
 allow hal_power_default sysfs_touchpad:file w_file_perms;
 
 # /sys/kernel/debug/wlan0/power_stats
-r_dir_file(hal_power_default, debugfs_power_stats)
 allow hal_power_default debugfs_wlan_power:file r_file_perms;
+r_dir_file(hal_power_default, debugfs_power_stats)
+r_dir_file(hal_power_default, debugfs_wlan)
 
 r_dir_file(hal_power_default, sysfs_devfreq)
 r_dir_file(hal_power_default, sysfs_kgsl)
@@ -20,3 +21,6 @@ allow hal_power_default device_latency:chr_file rw_file_perms;
 
 # To get/set powerhal state property
 set_prop(hal_power_default, power_prop)
+
+# To dump
+allow hal_power_default cgroup:file rw_file_perms;
