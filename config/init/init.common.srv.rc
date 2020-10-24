@@ -25,12 +25,14 @@ service vendor.cnd /system/vendor/bin/cnd
     class main
     user system
     group system wifi inet radio wakelock net_admin
+    writepid /dev/cpuset/system-background/tasks
 
 # QCOM prop
 service irsc_util /vendor/bin/irsc_util "/vendor/etc/sec_config"
     class core
     user root
     oneshot
+    writepid /dev/cpuset/system-background/tasks
 
 ### RADIO
 
@@ -40,6 +42,7 @@ service vendor.rmt_storage /vendor/bin/rmt_storage
     user root
     shutdown critical
     ioprio rt 0
+    writepid /dev/cpuset/system-background/tasks
 
 # QCOM prop
 service vendor.tftp_server /vendor/bin/tftp_server
@@ -58,6 +61,7 @@ service vendor.port-bridge /system/vendor/bin/port-bridge
 service vendor.netmgrd /system/vendor/bin/netmgrd
     class main
     disabled
+    writepid /dev/cpuset/system-background/tasks
 
 on property:ro.vendor.use_data_netmgrd=false
     # netmgr not supported on specific target
@@ -95,6 +99,7 @@ service vendor.atfwd /vendor/bin/ATFWD-daemon
     class late_start
     user system
     group system radio
+    writepid /dev/cpuset/system-background/tasks
 
 on property:persist.vendor.radio.atfwd.start=false
     stop vendor.atfwd
@@ -108,12 +113,14 @@ service per_mgr /vendor/bin/pm-service
     user system
     group system
     ioprio rt 4
+    writepid /dev/cpuset/system-background/tasks
 
 service per_proxy /vendor/bin/pm-proxy
     class core
     user system
     group system
     disabled
+    writepid /dev/cpuset/system-background/tasks
 
 on property:init.svc.per_mgr=running
     start per_proxy
@@ -124,6 +131,7 @@ on shutdown
 # QCOM prop
 service pd_mapper /system/vendor/bin/pd-mapper
      class core
+     writepid /dev/cpuset/system-background/tasks
 
 # QCOM prop
 service cnss-daemon /system/vendor/bin/cnss-daemon -n -l
@@ -131,6 +139,7 @@ service cnss-daemon /system/vendor/bin/cnss-daemon -n -l
     user system
     group system inet net_admin wifi
     capabilities NET_ADMIN
+    writepid /dev/cpuset/system-background/tasks
 
 on shutdown
     stop cnss-daemon
@@ -155,23 +164,27 @@ service loc_launcher /system/vendor/bin/loc_launcher
     class late_start
     user gps
     group gps
+    writepid /dev/cpuset/system-background/tasks
 
 service vendor.msm_irqbalance /vendor/bin/msm_irqbalance -f /system/vendor/etc/msm_irqbalance.conf
     class core
     user root
     group root
+    writepid /dev/cpuset/system-background/tasks
 
 ### SENSORS
 service vendor.sensors.qti /vendor/bin/sensors.qti
     class core
     user system
     group system
+    writepid /dev/cpuset/system-background/tasks
 
 ### TEE
 service vendor.qseecomd /vendor/bin/qseecomd
     class core
     user root
     group root
+    writepid /dev/cpuset/system-background/tasks
 
 ### Thermal Manager
 service thermal-engine /system/vendor/bin/thermal-engine
@@ -182,12 +195,14 @@ service thermal-engine /system/vendor/bin/thermal-engine
     socket thermal-recv-passive-client stream 0666 system system
     socket thermal-send-rule stream 0660 system system
     group root oem_2993 oem_2929
+    writepid /dev/cpuset/system-background/tasks
 
 ### ADSP FastRPC
 service adsprpcd /system/vendor/bin/adsprpcd
    class main
    user media
    group media
+   writepid /dev/cpuset/system-background/tasks
 
 ### TimeService
 service time_daemon /system/vendor/bin/time_daemon
@@ -202,6 +217,7 @@ service ppd /vendor/bin/mm-pp-dpps
     group system graphics
     socket pps stream 0660 system system
     disabled
+    writepid /dev/cpuset/system-background/tasks
 
 # QCOM prop
 service ssgqmigd /vendor/bin/ssgqmigd
@@ -225,6 +241,7 @@ service energy-awareness /system/vendor/bin/energy-awareness
     user root
     group system
     oneshot
+    writepid /dev/cpuset/system-background/tasks
 
 ### SSR (subsystem restart)
 service vendor.ssr_setup /system/vendor/bin/ssr_setup
