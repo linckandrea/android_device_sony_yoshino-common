@@ -124,6 +124,10 @@ PRODUCT_PROPERTY_OVERRIDES += \
 PRODUCT_PROPERTY_OVERRIDES += \
     vendor.media.vpp.enable=false
 
+# Background apps settings
+PRODUCT_PROPERTY_OVERRIDES += \
+    ro.vendor.qti.sys.fw.bg_apps_limit=38
+
 ### BLUETOOTH
 PRODUCT_PROPERTY_OVERRIDES += \
     ro.vendor.bt.bdaddr_path="/data/vendor/etc/bluetooth_bdaddr" \
