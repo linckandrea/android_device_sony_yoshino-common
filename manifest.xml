@@ -705,4 +705,14 @@
         </interface>
         <fqname>@2.0::ISomcWifi/default</fqname>
     </hal>
+    <hal format="hidl">
+        <name>vendor.somc.hardware.wifidriver</name>
+        <transport>hwbinder</transport>
+        <version>1.0</version>
+        <interface>
+            <name>ISomcWifiDriver</name>
+            <instance>default</instance>
+        </interface>
+        <fqname>@1.0::ISomcWifiDriver/default</fqname>
+    </hal>
 </manifest>

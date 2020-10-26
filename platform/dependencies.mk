@@ -41,9 +41,6 @@ PRODUCT_PACKAGES += \
 
 ### HIDL
 PRODUCT_PACKAGES += \
-    android.hidl.base@1.0 \
-    android.hidl.base@1.0.vendor \
-    android.hidl.manager@1.0 \
     android.hidl.manager-V1.0-java \
     libhidltransport \
     libhidltransport.vendor \
@@ -52,9 +49,7 @@ PRODUCT_PACKAGES += \
 
 ### IMS
 PRODUCT_PACKAGES += \
-    ims-ext-common \
     ims-ext-common_system \
-    ims_ext_common.xml
 
 PRODUCT_BOOT_JARS += \
     ims-ext-common_system
@@ -111,17 +106,6 @@ PRODUCT_PACKAGES += \
     libstdc++.vendor \
     libtinyxml \
     libxml2
-
-### TELEPHONY
-PRODUCT_PACKAGES += \
-    telephony-ext \
-    qti-telephony-hidl-wrapper \
-    qti_telephony_hidl_wrapper.xml \
-    qti-telephony-utils \
-    qti_telephony_utils.xml
-
-PRODUCT_BOOT_JARS += \
-    telephony-ext
 
 ### VNDK
 PRODUCT_PACKAGES += \
