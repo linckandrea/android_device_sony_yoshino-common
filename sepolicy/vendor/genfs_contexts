@@ -7,7 +7,6 @@ genfscon debugfs /wcd_cpe/err_status                                    u:object
 genfscon debugfs /wlan0/power_stats                                     u:object_r:debugfs_wlan_power:s0
 genfscon debugfs /system_stats                                          u:object_r:debugfs_rpm:s0
 genfscon debugfs /rpm_stats                                             u:object_r:debugfs_rpm:s0
-genfscon debugfs /system_stats                                          u:object_r:debugfs_rpm:s0
 
 # sysfs
 genfscon sysfs /class/qns                                               u:object_r:sysfs_qns:s0
