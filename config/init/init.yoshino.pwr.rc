@@ -12,9 +12,6 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-on early-init
-    write /proc/sys/kernel/sched_boost 1
-
 on init
     write /sys/module/qpnp_rtc/parameters/poweron_alarm 1
 
@@ -23,6 +20,11 @@ on init
     write /sys/devices/soc/${ro.boot.bootdevice}/clkgate_enable 0
     write /sys/module/lpm_levels/parameters/sleep_disabled Y
 
+    # Set boottime stune value
+    write /dev/stune/schedtune.prefer_idle 1
+    write /dev/stune/schedtune.boost 100
+
+    # set default schedTune value for foreground/top-app
     write /dev/stune/foreground/schedtune.prefer_idle 1
     write /dev/stune/top-app/schedtune.boost 10
     write /dev/stune/top-app/schedtune.prefer_idle 1
@@ -50,6 +52,10 @@ on init
     chown system system /sys/devices/soc/soc:qcom,cpubw/devfreq/soc:qcom,cpubw/bw_hwmon/hyst_length
 
 on charger
+    # Set runtime stune value
+    write /dev/stune/schedtune.prefer_idle 0
+    write /dev/stune/schedtune.boost 0
+
     # Bring CPUs online
     write /sys/devices/system/cpu/cpu1/online 1
     write /sys/devices/system/cpu/cpu2/online 1
@@ -121,32 +127,6 @@ on property:sys.boot_completed=1
     write /sys/devices/system/cpu/cpu4/cpufreq/schedutil/iowait_boost_enable 0
     write /sys/devices/system/cpu/cpu4/cpufreq/scaling_min_freq 806400
 
-    # Enable bus-dcvs
-    write /sys/class/devfreq/soc:qcom,cpubw/governor "bw_hwmon"
-    write /sys/class/devfreq/soc:qcom,cpubw/polling_interval 50
-    write /sys/class/devfreq/soc:qcom,cpubw/min_freq 1525
-    write /sys/class/devfreq/soc:qcom,cpubw/bw_hwmon/mbps_zones "3143 5859 11863 13763"
-    write /sys/class/devfreq/soc:qcom,cpubw/bw_hwmon/sample_ms 4
-    write /sys/class/devfreq/soc:qcom,cpubw/bw_hwmon/io_percent 34
-    write /sys/class/devfreq/soc:qcom,cpubw/bw_hwmon/hist_memory 20
-    write /sys/class/devfreq/soc:qcom,cpubw/bw_hwmon/hyst_length 10
-    write /sys/class/devfreq/soc:qcom,cpubw/bw_hwmon/low_power_ceil_mbps 0
-    write /sys/class/devfreq/soc:qcom,cpubw/bw_hwmon/low_power_io_percent 34
-    write /sys/class/devfreq/soc:qcom,cpubw/bw_hwmon/low_power_delay 20
-    write /sys/class/devfreq/soc:qcom,cpubw/bw_hwmon/guard_band_mbps 0
-    write /sys/class/devfreq/soc:qcom,cpubw/bw_hwmon/up_scale 250
-    write /sys/class/devfreq/soc:qcom,cpubw/bw_hwmon/idle_mbps 1600
-
-    # Enable dynamic memory bus latency control
-    write /sys/class/devfreq/soc:qcom,memlat-cpu0/governor "mem_latency"
-    write /sys/class/devfreq/soc:qcom,memlat-cpu0/polling_interval 10
-    write /sys/class/devfreq/soc:qcom,memlat-cpu0/mem_latency/ratio_ceil 400
-    write /sys/class/devfreq/soc:qcom,memlat-cpu4/governor "mem_latency"
-    write /sys/class/devfreq/soc:qcom,memlat-cpu4/polling_interval 10
-    write /sys/class/devfreq/soc:qcom,memlat-cpu4/mem_latency/ratio_ceil 400
-
-    write /sys/class/devfreq/soc:qcom,mincpubw/governor "cpufreq"
-
     # Enable Low power modes
     write /sys/module/lpm_levels/system/pwr/cpu0/ret/idle_enabled N
     write /sys/module/lpm_levels/system/pwr/cpu1/ret/idle_enabled N
@@ -166,6 +146,10 @@ on property:sys.boot_completed=1
     write /sys/devices/soc/${ro.boot.bootdevice}/clkgate_enable 1
     write /sys/module/lpm_levels/parameters/sleep_disabled N
 
+    # Set runtime stune value
+    write /dev/stune/schedtune.prefer_idle 0
+    write /dev/stune/schedtune.boost 0
+
     # Enable PowerHAL hint processing
     setprop vendor.powerhal.init 1
 
@@ -174,4 +158,3 @@ on property:sys.boot_completed=1
     write /dev/cpuset/background/cpus "0-2"
     write /dev/cpuset/system-background/cpus "0-3"
     write /dev/cpuset/restricted/cpus "0-3"
-    write /proc/sys/kernel/sched_boost 0
