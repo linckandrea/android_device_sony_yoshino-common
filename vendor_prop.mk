@@ -152,7 +152,9 @@ PRODUCT_PROPERTY_OVERRIDES += \
 # Display Properties as per treble compliance
 PRODUCT_PROPERTY_OVERRIDES += \
     vendor.gralloc.disable_ubwc=0 \
-    vendor.gralloc.enable_fb_ubwc=1
+    vendor.gralloc.enable_fb_ubwc=1 \
+    ro.hardware.egl=adreno \
+    ro.hardware.vulkan=adreno
 
 # HDR
 PRODUCT_PROPERTY_OVERRIDES += \
