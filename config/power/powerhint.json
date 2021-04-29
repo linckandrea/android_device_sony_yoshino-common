@@ -136,7 +136,7 @@
     },
     {
       "Name": "UfsClkGateEnable",
-      "Path": "/sys/devices/platform/soc/1da4000.ufshc/clkgate_enable",
+      "Path": "/sys/devices/soc/1da4000.ufshc/clkgate_enable",
       "Values": [
         "0",
         "1"
