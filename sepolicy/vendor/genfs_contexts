@@ -59,3 +59,4 @@ genfscon sysfs /devices/virtual/switch/lid/state                        u:object
 # Needed by PowerHAL
 genfscon sysfs /devices/soc/soc:qcom,cpubw            u:object_r:sysfs_msm_subsys:s0
 genfscon sysfs /devices/soc/soc:qcom,mincpubw         u:object_r:sysfs_msm_subsys:s0
+genfscon sysfs /sys/devices/soc/1da4000.ufshc/clkgate_enable         u:object_r:sysfs_msm_subsys:s0        
