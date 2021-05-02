@@ -5,6 +5,7 @@ allow hal_power_default sysfs_touchpad:file w_file_perms;
 
 allow hal_power_default debugfs_wlan_power:file r_file_perms;
 allow hal_power_default debugfs_rpm:file r_file_perms;
+allow hal_power_default sysfs_scsi_devices_0000:file rw_file_perms;
 r_dir_file(hal_power_default, debugfs_power_stats)
 r_dir_file(hal_power_default, debugfs_rpm)
 r_dir_file(hal_power_default, debugfs_wlan)
