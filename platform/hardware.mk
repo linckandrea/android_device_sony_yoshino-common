@@ -118,9 +118,13 @@ PRODUCT_PACKAGES += \
 
 # HEALTH
 PRODUCT_PACKAGES += \
-    android.hardware.health@2.1-impl:64 \
-    android.hardware.health@2.1-impl.recovery \
+    android.hardware.health@2.1-impl-qti \
     android.hardware.health@2.1-service
+
+
+# QTI Components
+TARGET_COMMON_QTI_COMPONENTS := \
+    perf
 
 # LIGHT
 PRODUCT_PACKAGES += \
@@ -131,10 +135,6 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     android.hardware.memtrack@1.0-impl \
     android.hardware.memtrack@1.0-service
-
-# POWER
-PRODUCT_PACKAGES += \
-    android.hardware.power@1.3-service.yoshino
 
 # RADIO
 PRODUCT_PACKAGES += \

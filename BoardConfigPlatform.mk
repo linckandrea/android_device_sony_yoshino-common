@@ -113,7 +113,9 @@ TARGET_USES_ION := true
 DEVICE_FRAMEWORK_MANIFEST_FILE := $(PLATFORM_PATH)/framework_manifest.xml
 DEVICE_MANIFEST_FILE := $(PLATFORM_PATH)/manifest.xml
 DEVICE_MATRIX_FILE := $(PLATFORM_PATH)/compatibility_matrix.xml
-
+DEVICE_FRAMEWORK_COMPATIBILITY_MATRIX_FILE += \
+    $(PLATFORM_PATH)/sony_vendor_framework_compatibility_matrix.xml \
+    vendor/qcom/opensource/core-utils/vendor_framework_compatibility_matrix.xml
 ### INIT
 TARGET_INIT_VENDOR_LIB := //$(PLATFORM_PATH):libinit_yoshino
 TARGET_RECOVERY_DEVICE_MODULES := libinit_yoshino

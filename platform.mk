@@ -17,8 +17,7 @@
 PLATFORM_PATH := device/sony/yoshino-common
 
 PRODUCT_SOONG_NAMESPACES += \
-    $(PLATFORM_PATH) \
-    hardware/google/pixel
+    $(PLATFORM_PATH)
 
 ### PLATFORM INIT
 PRODUCT_PACKAGES += \

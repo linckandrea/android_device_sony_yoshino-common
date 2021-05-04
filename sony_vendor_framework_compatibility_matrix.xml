@@ -1,0 +1,119 @@
+<compatibility-matrix version="1.0" type="framework">
+    <hal format="hidl">
+        <name>com.qualcomm.qti.ant</name>
+        <transport>hwbinder</transport>
+        <version>1.0</version>
+        <interface>
+            <name>IAntHci</name>
+            <instance>default</instance>
+        </interface>
+        <fqname>@1.0::IAntHci/default</fqname>
+    </hal>
+        <hal format="hidl">
+        <name>vendor.qti.imsrtpservice</name>
+        <transport>hwbinder</transport>
+        <version>1.0</version>
+        <interface>
+            <name>IRTPService</name>
+            <instance>imsrtpservice</instance>
+        </interface>
+        <fqname>@1.0::IRTPService/imsrtpservice</fqname>
+    </hal>
+    <hal format="hidl">
+        <name>com.fingerprints.extension</name>
+        <transport>hwbinder</transport>
+        <version>1.0</version>
+        <interface>
+            <name>IFingerprintAuthenticator</name>
+            <instance>default</instance>
+        </interface>
+        <interface>
+            <name>IFingerprintSensorTest</name>
+            <instance>default</instance>
+        </interface>
+        <fqname>@1.0::IFingerprintAuthenticator/default</fqname>
+        <fqname>@1.0::IFingerprintSensorTest/default</fqname>
+    </hal>
+    <hal format="hidl">
+        <name>vendor.semc.hardware.light</name>
+        <transport>hwbinder</transport>
+        <version>1.0</version>
+        <interface>
+            <name>IExtLight</name>
+            <instance>default</instance>
+        </interface>
+        <fqname>@1.0::IExtLight/default</fqname>
+    </hal>
+    <hal format="hidl">
+        <name>vendor.semc.hardware.thermal</name>
+        <transport>hwbinder</transport>
+        <version>1.0</version>
+        <interface>
+            <name>ISomcThermalEngineWrapper</name>
+            <instance>default</instance>
+        </interface>
+        <fqname>@1.0::ISomcThermalEngineWrapper/default</fqname>
+    </hal>
+    <hal format="hidl">
+        <name>vendor.semc.system.idd</name>
+        <transport>hwbinder</transport>
+        <version>1.0</version>
+        <interface>
+            <name>IIdd</name>
+            <instance>default</instance>
+            <instance>logreader</instance>
+        </interface>
+        <fqname>@1.0::IIdd/default</fqname>
+        <fqname>@1.0::IIdd/logreader</fqname>
+    </hal>
+    <hal format="hidl">
+        <name>vendor.somc.hardware.camera.provider</name>
+        <transport>hwbinder</transport>
+        <version>1.0</version>
+        <interface>
+            <name>IVendorSomcCameraProvider</name>
+            <instance>internal/0</instance>
+        </interface>
+        <fqname>@1.0::IVendorSomcCameraProvider/internal/0</fqname>
+    </hal>
+    <hal format="hidl">
+        <name>vendor.somc.hardware.miscta</name>
+        <transport>hwbinder</transport>
+        <version>1.0</version>
+        <interface>
+            <name>IMisctaGlobal</name>
+            <instance>default</instance>
+        </interface>
+        <fqname>@1.0::IMisctaGlobal/default</fqname>
+    </hal>
+    <hal format="hidl">
+        <name>vendor.somc.hardware.security.secd</name>
+        <transport>hwbinder</transport>
+        <version>1.0</version>
+        <interface>
+            <name>IDeviceSecurity</name>
+            <instance>default</instance>
+        </interface>
+        <fqname>@1.0::IDeviceSecurity/default</fqname>
+    </hal>
+    <hal format="hidl">
+        <name>vendor.somc.hardware.wifi</name>
+        <transport>hwbinder</transport>
+        <version>2.0</version>
+        <interface>
+            <name>ISomcWifi</name>
+            <instance>default</instance>
+        </interface>
+        <fqname>@2.0::ISomcWifi/default</fqname>
+    </hal>
+    <hal format="hidl">
+        <name>vendor.somc.hardware.wifidriver</name>
+        <transport>hwbinder</transport>
+        <version>1.0</version>
+        <interface>
+            <name>ISomcWifiDriver</name>
+            <instance>default</instance>
+        </interface>
+        <fqname>@1.0::ISomcWifiDriver/default</fqname>
+    </hal>
+</compatibility-matrix>
